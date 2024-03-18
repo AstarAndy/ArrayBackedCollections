@@ -24,6 +24,7 @@ class ArrayBackedSetTest {
 
         sbSet.add("First One");
         sbSet.add("Another One");
+
         expected = 2;
         actual = sbSet.size();
         assertEquals(expected, actual);

@@ -1,8 +1,6 @@
 package org.acf.collections;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class ArrayBackedSet<E> implements Set<E> {
 
@@ -70,6 +68,11 @@ public class ArrayBackedSet<E> implements Set<E> {
         return false;
         //throw new ArrayIndexOutOfBoundsException("contains (E e) method. Fix for testing");
 
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(internalTable);
     }
 
     /*
