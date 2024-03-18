@@ -11,34 +11,51 @@ class ArrayBackedSetTest {
 
     @BeforeEach
     void setUp() {
+
         sbSet = new ArrayBackedSet<>();
+
     }
 
     @Test
-    void size() {
-        int expected = -1;
+    void sizeTests() {
+        int expected = 0;
         int actual = sbSet.size();
+        assertEquals(expected, actual);
+
+        sbSet.add("First One");
+        sbSet.add("Another One");
+        expected = 2;
+        actual = sbSet.size();
         assertEquals(expected, actual);
 
     }
 
     @Test
-    void isEmpty() {
+    void isEmptyTests() {
+        boolean expected = true;
+        boolean actual = sbSet.isEmpty();
+        assertEquals(expected, actual);
+
+        sbSet.add("Something  there");
+        expected = false;
+        actual = sbSet.isEmpty();
+        assertEquals(expected, actual);
+
     }
 
-    @Test
+    //@Test
     void contains() {
     }
 
-    @Test
+    //@Test
     void add() {
     }
 
-    @Test
+    //@Test
     void remove() {
     }
 
-    @Test
+    //@Test
     void clear() {
     }
 }

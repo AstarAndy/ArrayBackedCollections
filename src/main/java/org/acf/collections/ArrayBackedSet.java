@@ -24,22 +24,26 @@ public class ArrayBackedSet<E> implements Set<E> {
 
     @Override
     public int size() {
-
-        return -1;
-        //throw new ArrayIndexOutOfBoundsException("size() - Fix for testing");
+        return nbrEntries;
     }
 
     @Override
     public boolean isEmpty() {
-        return true;
-        //throw new ArrayIndexOutOfBoundsException("isEmpty() method. Fix for testing");
+
+        return (nbrEntries == 0);
 
     }
 
     @Override
     public boolean add(E e) {
-        return false;
-        //throw new ArrayIndexOutOfBoundsException("add(E e) method. Fix for testing");
+        nbrEntries++;
+        if (nbrEntries > internalTable.length) {
+            resizeTable();
+        }
+
+        internalTable[(nbrEntries - 1)] = e;
+
+        return true;
 
     }
 
@@ -55,6 +59,10 @@ public class ArrayBackedSet<E> implements Set<E> {
         return;
         //throw new ArrayIndexOutOfBoundsException("contains (E e) method. Fix for testing");
 
+    }
+
+    protected boolean resizeTable() {
+        return true;
     }
 
     @Override
