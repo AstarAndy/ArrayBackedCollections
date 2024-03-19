@@ -45,18 +45,29 @@ public class ArrayBackedSet<E> implements Set<E> {
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public boolean contains(Object o) {
-        return true;
-        //throw new ArrayIndexOutOfBoundsException("contains (E e) method. Fix for testing");
+        boolean result = false;
+        if (nbrEntries < 1) {
+            return false;
+        }
 
+        E elementToFind = ((E) o);
+        for (int idx = 0; idx < nbrEntries; idx++) {
+            if (elementToFind.equals(internalTable[idx])) {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void clear() {
-        return;
-        //throw new ArrayIndexOutOfBoundsException("contains (E e) method. Fix for testing");
-
+        nbrEntries = 0;
+        internalTable = (E[]) new Object[DEFAULT_BLOCK_SIZE];
     }
 
     protected boolean resizeTable() {

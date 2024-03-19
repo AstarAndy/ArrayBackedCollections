@@ -44,12 +44,35 @@ class ArrayBackedSetTest {
 
     }
 
-    //@Test
-    void contains() {
+    @Test
+    void containsTests() {
+        boolean expected = false;
+        boolean actual = sbSet.contains("I am here");
+        assertEquals(expected, actual);
+
+        sbSet.add("one");
+        sbSet.add("I am here");
+        sbSet.add("Three");
+
+        expected = true;
+        actual = sbSet.contains("I am here");
+        assertEquals(expected, actual);
+
+
     }
 
-    //@Test
-    void add() {
+    @Test
+    void addTest() {
+        int expected = 0;
+        int actual = sbSet.size();
+        assertEquals(expected, actual);
+
+        sbSet.add("First One");
+        sbSet.add("Another One");
+
+        expected = 2;
+        actual = sbSet.size();
+        assertEquals(expected, actual);
     }
 
     //@Test
@@ -57,6 +80,16 @@ class ArrayBackedSetTest {
     }
 
     //@Test
-    void clear() {
+    void clearTests() {
+        sbSet.add("I am here");
+        boolean expected = true;
+        boolean actual = sbSet.contains("I am here");
+        assertEquals(expected, actual);
+
+        sbSet.clear();
+        expected = false;
+        actual = sbSet.contains("I am here");
+        assertEquals(expected, actual);
+
     }
 }
